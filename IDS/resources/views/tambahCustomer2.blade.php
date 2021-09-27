@@ -64,10 +64,23 @@
                 </div>
             </div>
 
-							
+            <div class="row">
+                <div class="col-6">
+                    <div class="col-2" id="my_camera"></div>
+                    <input type=button value="Take Snapshot" onClick="take_snapshot()">
+                    <input type="hidden" name="image" class="image-tag">
+                    <!-- <br/> -->
+                </div>
+                <div class="col-md-6">
+                    <div id="results">Your captured image will appear here...</div>
+                </div>
+            </div>
+            <!-- </div> -->
+             <br/>
 			<div class="form-group">
                 <input type="submit" class="btn btn-success" value="Simpan Data">
 			</div>
+							
 							
 		</form>
     </div>
@@ -152,6 +165,23 @@
                    }
                 });
         });
+
+        Webcam.set({
+            width: 400,
+            height: 300,
+            image_format: 'png',
+            jpeg_quality: 300
+        });
+  
+        Webcam.attach( '#my_camera' );
+  
+            function take_snapshot() {
+                Webcam.snap( function(data_uri) {
+                    $(".image-tag").val(data_uri);
+                    document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+                } );
+            }
+
     </script>
 </div>
 @endsection

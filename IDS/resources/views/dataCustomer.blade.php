@@ -27,7 +27,13 @@
                 <td>{{ $cust->ec_subdistricts->ec_districts->dis_name }}</td>
                 <td>{{ $cust->ec_subdistricts->ec_districts->ec_cities->city_name }}</td>
                 <td>{{ $cust->ec_subdistricts->ec_districts->ec_cities->ec_provinces->prov_name }}</td>
-                <td>Default</td>
+                <td>
+                    @if($cust->foto == null)
+                    <img src="{{ asset('/storage/'.$cust->file_path) }}" style="width:150px;height:150px">
+                    @else
+                    <img src="{{ $cust->foto }}" style="width:150px;height:150px">
+                    @endif
+                </td>
             </tr>
             @endforeach
         </table>

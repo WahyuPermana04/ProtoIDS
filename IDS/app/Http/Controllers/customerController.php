@@ -9,6 +9,7 @@ use App\ec_districts;
 use App\ec_cities;
 use App\ec_provinces;
 use App\customer;
+use Illuminate\Support\Facades\Storage;
 
 class customerController extends Controller
 {
@@ -57,7 +58,7 @@ class customerController extends Controller
         return json_encode($ec_subdistricts);
     }
 
-    public function store1(Request $request)
+public function store1(Request $request)
 {
 	// insert data ke table
 	DB::table('customer')->insert([
@@ -71,18 +72,29 @@ class customerController extends Controller
 	return redirect('/tambahCust1');
  
 }
+
 public function store2(Request $request)
 {
-	// insert data ke table
-	DB::table('customer')->insert([
-		'id_customer' => $request->id,
+	$this->validate($request,[
+        'nama' => 'required',
+    ]);
+
+    $image = str_replace('data:image/png;base64,', '', $request->image);
+    $image = str_replace(' ', '+', $image);
+    // $imageName = str_random(10) . '.png';
+    $imageName = $request->nama.time(). '.png';
+
+    Storage::disk('local')->put($imageName, base64_decode($image));
+
+    DB::table('customer')->insert([
+        'id_customer' => $request->id,
 		'nama' => $request->nama,
 		'alamat' => $request->alamat,
+        // 'foto'  => $imageName,
+        'file_path' => $imageName,
 		'id_kel' => $request->ec_subdistricts
-	]);
-	// alihkan halaman ke halaman
-	return redirect('/tambahCust2');
- 
+    ]);
+    return redirect('/tambahCust2');
 }
 
 }
