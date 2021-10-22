@@ -39,5 +39,17 @@
         <li class="nav-item"> <a class="nav-link" href="/tambahCust2"> Tambah Customer 2 </a></li>
       </ul>
     </div>
+    <li class="nav-item">
+    <a class="nav-link" href="label">
+      <span class="menu-title">Cetak Label</span>
+      <i class="icon-screen-desktop menu-icon"></i>
+    </a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link" href="barcode">
+      <span class="menu-title">Barcode</span>
+      <i class="icon-screen-desktop menu-icon"></i>
+    </a>
+  </li>
   </li>
 </ul>

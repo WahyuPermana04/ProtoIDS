@@ -75,14 +75,15 @@ public function store1(Request $request)
 
 public function store2(Request $request)
 {
-	$this->validate($request,[
-        'nama' => 'required',
-    ]);
+	// $this->validate($request,[
+    //     'nama' => 'required',
+    // ]);
 
     $image = str_replace('data:image/png;base64,', '', $request->image);
     $image = str_replace(' ', '+', $image);
     // $imageName = str_random(10) . '.png';
     $imageName = $request->nama.time(). '.png';
+    // $file_path = $post->nama.time(). '.png';
 
     Storage::disk('local')->put($imageName, base64_decode($image));
 

@@ -27,3 +27,11 @@ Route::get('tambahCustomer/getsubdistricts/{id}','customerController@getSubdistr
 Route::post('/tambahCustomer1/store1','customerController@store1');
 Route::post('/tambahCustomer2/store2','customerController@store2');
 
+route::get('/label','barcodeController@indexLabel');
+Route::view('/barcode', 'barcode');
+route::get('/tambahLabel','barcodeController@indexTambahLabel');
+Route::post('/tambahLabel/store','barcodeController@store');
+// route::get('/cetakBarcode','barcodeController@cetakBarcode');
+Route::post('/cetakBarcode', 'barcodeController@cetakPdf' );
+
+
