@@ -18,7 +18,7 @@
   <li class="nav-item">
     <a class="nav-link" href="home">
       <span class="menu-title">Dashboard</span>
-      <i class="icon-screen-desktop menu-icon"></i>
+      <i class="icon-home menu-icon"></i>
     </a>
   </li>
   <!-- <li class="nav-item">
@@ -30,7 +30,7 @@
   <li class="nav-item">
     <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
       <span class="menu-title">Customer</span>
-      <i class="icon-doc menu-icon"></i>
+      <i class="icon-people menu-icon"></i>
     </a>
     <div class="collapse" id="auth">
       <ul class="nav flex-column sub-menu">
@@ -40,16 +40,28 @@
       </ul>
     </div>
     <li class="nav-item">
-    <a class="nav-link" href="label">
-      <span class="menu-title">Cetak Label</span>
-      <i class="icon-screen-desktop menu-icon"></i>
+    <a class="nav-link" href="barang">
+      <span class="menu-title">Data Barang</span>
+      <i class=" icon-basket menu-icon"></i>
     </a>
   </li>
     <li class="nav-item">
     <a class="nav-link" href="barcode">
-      <span class="menu-title">Barcode</span>
-      <i class="icon-screen-desktop menu-icon"></i>
+      <span class="menu-title">Barcode Scanner</span>
+      <i class="icon-camera menu-icon"></i>
     </a>
   </li>
+  <li class="nav-item">
+  <a class="nav-link" data-toggle="collapse" href="#toko" aria-expanded="false" aria-controls="auth">
+      <span class="menu-title">Toko</span>
+      <i class="icon-map menu-icon"></i>
+    </a>
+    <div class="collapse" id="toko">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"> <a class="nav-link" href="datatoko"> Data Toko </a></li>
+        <li class="nav-item"> <a class="nav-link" href="tambahtoko"> Tambah Toko </a></li>
+        <li class="nav-item"> <a class="nav-link" href="scankunjungan"> Scan Kunjungan </a></li>
+      </ul>
+    </div>
   </li>
 </ul>

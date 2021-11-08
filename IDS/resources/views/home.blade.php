@@ -1,5 +1,5 @@
 @extends('layout.main')
 
 @section('layout.content')
-<h1>HALAMAHAN HOME BRO! </h1>
+<h1> SELAMAT DATANG SELAMAT BELANJA! </h1>
 @endsection

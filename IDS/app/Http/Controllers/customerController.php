@@ -62,7 +62,7 @@ public function store1(Request $request)
 {
 	// insert data ke table
 	DB::table('customer')->insert([
-		'id_customer' => $request->id,
+		// 'id_customer' => $request->id,
 		'nama' => $request->nama,
 		'alamat' => $request->alamat,
 		'id_kel' => $request->ec_subdistricts,
@@ -88,7 +88,7 @@ public function store2(Request $request)
     Storage::disk('local')->put($imageName, base64_decode($image));
 
     DB::table('customer')->insert([
-        'id_customer' => $request->id,
+        // 'id_customer' => $request->id,
 		'nama' => $request->nama,
 		'alamat' => $request->alamat,
         // 'foto'  => $imageName,

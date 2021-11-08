@@ -27,11 +27,20 @@ Route::get('tambahCustomer/getsubdistricts/{id}','customerController@getSubdistr
 Route::post('/tambahCustomer1/store1','customerController@store1');
 Route::post('/tambahCustomer2/store2','customerController@store2');
 
-route::get('/label','barcodeController@indexLabel');
+route::get('/barang','barcodeController@indexBarang');
 Route::view('/barcode', 'barcode');
 route::get('/tambahLabel','barcodeController@indexTambahLabel');
 Route::post('/tambahLabel/store','barcodeController@store');
 // route::get('/cetakBarcode','barcodeController@cetakBarcode');
-Route::post('/cetakBarcode', 'barcodeController@cetakPdf' );
+// Route::post('/cetakBarcode', 'barcodeController@cetakPdf' );
+Route::get('/cetakBarcode/{id_barang}/{col}/{row}', 'barcodeController@cetakPdf');;
+
+Route::get('/datatoko', 'tokoController@indextoko');
+Route::get('/tambahtoko', 'tokoController@indextambah');
+Route::post('tambahtoko/simpan/', 'tokoController@simpan');
+Route::get('/scankunjungan', 'tokoController@indexkunjungan');
+Route::post('/scankunjungan/getLocationToko', 'tokoController@getLocationToko');
+// Route::post('/scan-kunjungan-toko/hasil',[scanBarcodeController::class,'getDistanceFromLatLonInKm']);
+Route::get('/datatoko/cetak/{barcode}', 'tokoController@cetak');
 
 

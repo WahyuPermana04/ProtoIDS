@@ -16,13 +16,13 @@ use Dompdf\Dompdf;
 
 class barcodeController extends Controller
 {
-    public function indexLabel(){
+    public function indexBarang(){
         //mengambil data dari tabel customer
         // $customer = DB::table('customer')->paginate(10);
         // $customer = customer::paginate(10);
         $barang = barang::all();
         //mengirim data ke view table
-        return view('label',
+        return view('barang',
         compact('barang'));
     }
 
@@ -42,21 +42,44 @@ class barcodeController extends Controller
  
     }
 
-   
-    public function cetakPdf(Request $request){
-        //dd($barang);
-        $data = Barang::all();
-        $baris = $request->baris_barang;
-        $kolom = $request->kolom_barang;
-        $long = count($data);
-        $long =intval($long/5);
-        $long++;
-        //dd($baris,$kolom);
-        $pdf = PDF::loadView('cetakBarcode', compact('data','long','baris','kolom'));
-    
-       return $pdf->download('barangBarcode.pdf');
+    // public function cetakPdf(Request $request){
+    //     //dd($barang);
+    //     $data = Barang::all();
+    //     $baris = $request->baris_barang;
+    //     $kolom = $request->kolom_barang;
+    //     $long = count($data);
+    //     $long =intval($long/5);
+    //     $long++;
+    //     //dd($baris,$kolom);
+    //     $pdf = PDF::loadView('cetakBarcode', compact('data','long','baris','kolom'));
+    //     return $pdf->stream('barang.pdf',array("Attachment" => 0));
         
-        //return view('barang.barcodePDF',compact('data','long','baris','kolom'));
+    //     //return view('barang.barcodePDF',compact('data','long','baris','kolom'));
+    // }
+
+    public function cetakPdf(Request $request)
+    {
+        $dataa = $request->id_barang;
+        $datab = explode(",", $dataa);
+        $barang = DB::table('barang')->whereIn('id_barang', $datab)->get();
+        $no = 1;
+        $x = 1;
+        $col = $request->col;
+        $row = $request->row;
+        $panjang=(($row-1)*5)+($col-1);
+        $data = array(
+            'menu' => 'Barcode',
+            'barang' => $barang,
+            'no' => $no,
+            'x' => $x,
+            'col' => $col,
+            'row' => $row,
+            'panjang' => $panjang,
+            'submenu' => '',
+        );
+          
+        $customPaper = array(0,0,611.7,469.47);
+        return PDF::loadView('cetakBarcode', $data)->setPaper($customPaper)->stream('barcode_barang.pdf');
     }
 
 }
