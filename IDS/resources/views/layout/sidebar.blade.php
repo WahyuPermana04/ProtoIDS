@@ -27,6 +27,7 @@
       <i class="icon-screen-desktop menu-icon"></i>
     </a>
   </li> -->
+  @if(Auth::check())
   <li class="nav-item">
     <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
       <span class="menu-title">Customer</span>
@@ -64,4 +65,5 @@
       </ul>
     </div>
   </li>
+  @endif
 </ul>

@@ -6,17 +6,20 @@
     <div class="card-body">
         <h1 align="center">TABEL DATA CUSTOMER </h1>
     </div>
+    
     <div class="card-body">
-        <table class="table table-bordered" border="2" align="center">
+        
+    <a href="/customer/export" class="btn btn-sm btn-success" style="margin-bottom: 10px">Import</a>
+        <table height="50px" align="center" border="1">
             <tr>
-                <td>ID</td>
-                <td>Nama</td>
-                <td>Alamat</td>
-                <td>Kelurahan</td>
-                <td>Kecamatan</td>
-                <td>Kota</td>
-                <td>Provinsi</td>
-                <td>Foto</td>
+                <th width="100px" height="50px">ID</td>
+                <th width="200px" height="50px">Nama</td>
+                <th width="300px" height="50px">Alamat</td>
+                <th width="300px" height="50px">Kelurahan</td>
+                <th width="300px" height="50px">Kecamatan</td>
+                <th width="300px" height="50px">Kota</td>
+                <th width="300px" height="50px">Provinsi</td>
+                <th width="100px" height="50px">Foto</td>
             </tr>
             @foreach($customer as $cust)
             <tr>

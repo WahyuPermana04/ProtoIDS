@@ -10,6 +10,8 @@ use App\ec_cities;
 use App\ec_provinces;
 use App\customer;
 use Illuminate\Support\Facades\Storage;
+use App\Imports\customerImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class customerController extends Controller
 {
@@ -62,7 +64,7 @@ public function store1(Request $request)
 {
 	// insert data ke table
 	DB::table('customer')->insert([
-		// 'id_customer' => $request->id,
+		'id_customer' => $request->id,
 		'nama' => $request->nama,
 		'alamat' => $request->alamat,
 		'id_kel' => $request->ec_subdistricts,
@@ -88,7 +90,7 @@ public function store2(Request $request)
     Storage::disk('local')->put($imageName, base64_decode($image));
 
     DB::table('customer')->insert([
-        // 'id_customer' => $request->id,
+        'id_customer' => $request->id,
 		'nama' => $request->nama,
 		'alamat' => $request->alamat,
         // 'foto'  => $imageName,
@@ -97,5 +99,54 @@ public function store2(Request $request)
     ]);
     return redirect('/tambahCust2');
 }
+
+// public function importExcel(Request $request)
+//     {
+//         // validasi
+// 		$this->validate($request, [
+// 			'excel' => 'required|mimes:xls,xlsx'
+// 		]);
+//         if($request->excel){
+//                // menangkap file excel
+//                 $file = $request->file('excel')->store('import');
+//                 // import data
+//                 $import = new customerImport;
+//                 $import->import($file);
+//                 //dd($import->failures());
+//                 if($import->failures()) {
+//                     return back()->withFailures($import->failures());
+//                 }
+//                 //dd($import->errors());
+//                 //(new CustomerImport)->import($file);
+//                 // alihkan halaman kembali
+//                 //return back()->withStatus('file excel is success imported');
+//         }
+//     }
+
+    public function importExcel(Request $request)
+    {
+        $validatedData = $request->validate([
+            'excel' => 'file'
+        ]);
+        
+		// $validatedData = $request->validate([
+		// 	'excel' => 'required|mimes:xls,xlsx'
+		// ]);
+    
+        $excel = $request->file('excel')->store('import');
+    
+        $import = new customerImport;
+        $import->import($excel);
+        // $import = Excel::import(new UsersImport(), storage_path('app/public/excel/'.$nama_file));
+
+        // dd($import->failures());
+        if($import->failures()->isNotEmpty()){
+            return back()->withFailures($import->failures());
+        } 
+    
+        return back()->with('success', 'File excel berhasil diimpor');
+        
+    }
+    
 
 }

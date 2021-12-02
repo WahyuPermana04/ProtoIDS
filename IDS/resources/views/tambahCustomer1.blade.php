@@ -17,12 +17,12 @@
     <div class="card-body">
 		<form action="/tambahCustomer1/store1" method="post">
 		{{ csrf_field() }}
-            <!-- <div class="form-group row">
+            <div class="form-group row">
 			    <label class="col-2 col-form-label">ID</label>
                 <div class="col-md-6">
                     <input type="text" name="id" class="form-control" required="required"   placeholder=". . ."> 
                 </div>
-			</div> -->
+			</div>
 							
 			<div class="form-group row">
 			    <label class="col-2 col-form-label">Nama</label>

@@ -67,6 +67,7 @@ class barcodeController extends Controller
         $col = $request->col;
         $row = $request->row;
         $panjang=(($row-1)*5)+($col-1);
+        $break = 0;
         $data = array(
             'menu' => 'Barcode',
             'barang' => $barang,
@@ -76,10 +77,13 @@ class barcodeController extends Controller
             'row' => $row,
             'panjang' => $panjang,
             'submenu' => '',
+            'break' => $break
         );
           
-        $customPaper = array(0,0,611.7,469.47);
-        return PDF::loadView('cetakBarcode', $data)->setPaper($customPaper)->stream('barcode_barang.pdf');
+        // $customPaper = array(0,0,611.7,469.47);
+        // return PDF::loadView('cetakBarcode', $data)->stream('barcode_barang.pdf');
+        $pdf = PDF::loadView('cetakBarcode', $data);
+        return $pdf->stream('barangBarcode.pdf');
     }
 
 }

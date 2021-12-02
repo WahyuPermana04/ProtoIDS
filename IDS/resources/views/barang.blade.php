@@ -29,6 +29,7 @@
               <div class="row">
                 <br>
                 <a data-toggle="modal" data-target="#pdf" class="btn btn-sm btn-success" style="margin-bottom: 10px">Cetak Barcode</a>
+                <a href="tambahLabel" class="btn btn-sm btn-success" style="margin-bottom: 10px">Tambah</a>
                
               </div>
               
