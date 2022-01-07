@@ -22,3 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('books', 'API\bookController');
 // Route::post('books', 'API\bookController@store');
 // Route::put('books/{id}', 'API\bookController@update');
+Route::resource('mobiles', 'API\MobileController');

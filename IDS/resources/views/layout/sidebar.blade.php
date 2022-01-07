@@ -16,7 +16,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="home">
+    <a class="nav-link" href="/home">
       <span class="menu-title">Dashboard</span>
       <i class="icon-home menu-icon"></i>
     </a>
@@ -41,13 +41,13 @@
       </ul>
     </div>
     <li class="nav-item">
-    <a class="nav-link" href="barang">
+    <a class="nav-link" href="/barang">
       <span class="menu-title">Data Barang</span>
       <i class=" icon-basket menu-icon"></i>
     </a>
   </li>
     <li class="nav-item">
-    <a class="nav-link" href="barcode">
+    <a class="nav-link" href="/barcode">
       <span class="menu-title">Barcode Scanner</span>
       <i class="icon-camera menu-icon"></i>
     </a>
@@ -59,9 +59,21 @@
     </a>
     <div class="collapse" id="toko">
       <ul class="nav flex-column sub-menu">
-        <li class="nav-item"> <a class="nav-link" href="datatoko"> Data Toko </a></li>
-        <li class="nav-item"> <a class="nav-link" href="tambahtoko"> Tambah Toko </a></li>
-        <li class="nav-item"> <a class="nav-link" href="scankunjungan"> Scan Kunjungan </a></li>
+        <li class="nav-item"> <a class="nav-link" href="/datatoko"> Data Toko </a></li>
+        <li class="nav-item"> <a class="nav-link" href="/tambahtoko"> Tambah Toko </a></li>
+        <li class="nav-item"> <a class="nav-link" href="/scankunjungan"> Scan Kunjungan </a></li>
+      </ul>
+    </div>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" data-toggle="collapse" href="#score" aria-expanded="false" aria-controls="auth">
+      <span class="menu-title">Scoreboard</span>
+      <i class="icon-map menu-icon"></i>
+    </a>
+    <div class="collapse" id="score">
+      <ul class="nav flex-column sub-menu">
+        <li class="nav-item"> <a class="nav-link" href="/control_papan"> Control Papan </a></li>
+        <li class="nav-item"> <a class="nav-link" href="/tampilan_papan"> Tampilan </a></li>
       </ul>
     </div>
   </li>

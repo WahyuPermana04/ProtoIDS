@@ -48,6 +48,52 @@ Route::post('/scankunjungan/getLocationToko', 'tokoController@getLocationToko');
 // Route::post('/scan-kunjungan-toko/hasil',[scanBarcodeController::class,'getDistanceFromLatLonInKm']);
 Route::get('/datatoko/cetak/{barcode}', 'tokoController@cetak');
 
+Route::get('/control_papan', 'scoreboardController@control_papan');
+Route::get('/tampilan_papan', 'scoreboardController@tampilan_papan');
+Route::get('update-sse','scoreboardController@update_sse');
+//update-name
+Route::post('store-home','scoreboardController@store_home');
+Route::post('store-away','scoreboardController@store_away');
+//update-skor-home
+Route::post('store-homeplus2','ScoreboardController@scorehomeplus2');
+Route::post('store-homeminus2','ScoreboardController@scorehomeminus2');
+Route::post('store-homeplus3','ScoreboardController@scorehomeplus3');
+Route::post('store-homeminus3','ScoreboardController@scorehomeminus3');
+//update-skor-away
+Route::post('store-awayplus2','ScoreboardController@scoreawayplus2');
+Route::post('store-awayminus2','ScoreboardController@scoreawayminus2');
+Route::post('store-awayplus3','ScoreboardController@scoreawayplus3');
+Route::post('store-awayminus3','ScoreboardController@scoreawayminus3');
+//get-skor-all
+Route::get('get-score','ScoreboardController@get_score');
+//reset-skor
+Route::post('reset-skor-home','ScoreboardController@resetscorehome');
+Route::post('reset-skor-away','ScoreboardController@resetscoreaway');
+//fouls-home
+Route::post('store-homefoulsplus1','ScoreboardController@homefoulsplus1');
+Route::post('store-homefoulsminus1','ScoreboardController@homefoulsminus1');
+//fouls-away
+Route::post('store-awayfoulsplus1','ScoreboardController@awayfoulsplus1');
+Route::post('store-awayfoulsminus1','ScoreboardController@awayfoulsminus1');
+//reset-fouls
+Route::post('reset-fouls-home','ScoreboardController@resetfoulshome');
+Route::post('reset-fouls-away','ScoreboardController@resetfoulsaway');
+//period
+Route::post('store-plus1period','ScoreboardController@plus1period');
+Route::post('store-minus1period','ScoreboardController@minus1period');
+Route::post('reset-period','ScoreboardController@resetperiod');
+//update-timer
+Route::post('reset-menit-detik','scoreboardController@reset_menit_detik');
+Route::post('resume-menit-detik','scoreboardController@resume_menit_detik');
+Route::post('stop-menit-detik','scoreboardController@stop_menit_detik');
+Route::post('update-menit-detik','ScoreboardController@update_menit_detik');
+//update-sound
+Route::post('store-sound1','ScoreboardController@store_sound1');
+Route::post('store-sound2','ScoreboardController@store_sound2');
+Route::post('store-sound3','ScoreboardController@store_sound3');
+Route::post('update-sound','ScoreboardController@update_sound');
+
+
 
 
 
